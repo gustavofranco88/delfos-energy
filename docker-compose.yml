@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  db_fonte: # Este é o banco que a API consulta
+    image: postgres:15
+    container_name: postgres_fonte
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db_fonte
+    ports:
+      - "5434:5432"
+    volumes:
+      # O Docker executa qualquer .sql nesta pasta durante a inicialização
+      - ./infra:/docker-entrypoint-initdb.d 
+
+  db_alvo: # Este é o banco onde o Dagster carrega os dados
+    image: postgres:15
+    container_name: postgres_alvo
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db_alvo
+    ports:
+      - "5433:5432"
