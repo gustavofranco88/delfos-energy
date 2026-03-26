@@ -1,6 +1,6 @@
 Passo a Passo para rodar o projeto
 Faça o clone desse repositório para sua máquina
-inicie o Docker Desktop na su máquina
+inicie o Docker Desktop na sua máquina
 abra o terminal na raiz do projeto e use o comando: "docker-compose up -d"
 abra outro terminal e digite o comando "uvicorn api.main:app -reload"
 abra um terceiro terminal e digite "dagster dev -m orchestration.definition"
